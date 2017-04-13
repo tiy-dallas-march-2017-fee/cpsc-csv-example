@@ -1,0 +1,22 @@
+{
+  "name": "cpsc-csv-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiy-dallas-march-2017-fee/cpsc-csv-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiy-dallas-march-2017-fee/cpsc-csv-example/issues"
+  },
+  "homepage": "https://github.com/tiy-dallas-march-2017-fee/cpsc-csv-example#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
