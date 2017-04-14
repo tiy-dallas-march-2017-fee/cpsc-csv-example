@@ -50,8 +50,6 @@ dateList.addEventListener('click', function(evt) {
 
 
 function putItOnThePage(arr) {
-  tbody.innerHTML = '';
-
   var totalHtml = '';
 
   for (var i = 0; i < arr.length; i++) {
