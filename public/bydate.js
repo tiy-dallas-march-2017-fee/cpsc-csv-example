@@ -1,5 +1,6 @@
 var dateList = document.querySelector('#dates');
 var tbody = document.querySelector('tbody');
+var template = document.querySelector('#row-template').innerHTML;
 
 var ajaxData;
 
@@ -44,25 +45,20 @@ dateList.addEventListener('click', function(evt) {
 
   }
 
-  console.log('what do I have?', filtered);
-
   putItOnThePage(filtered);
 })
 
 
 function putItOnThePage(arr) {
-
   tbody.innerHTML = '';
 
+  var totalHtml = '';
+
   for (var i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-    var tr = document.createElement('tr');
-
-    var td = document.createElement('td');
-    td.textContent = arr[i].violation;
-
-    tr.appendChild(td);
-    tbody.appendChild(tr);
+    var html = Mustache.render(template, arr[i]);
+    totalHtml += html;
   }
+
+  tbody.innerHTML = totalHtml;
 
 }
