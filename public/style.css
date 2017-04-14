@@ -73,3 +73,11 @@ th {
   color: white;
   text-align: left;
 }
+
+
+
+
+#dates li {
+	border: solid 1px #000;
+	padding: 10px;
+}

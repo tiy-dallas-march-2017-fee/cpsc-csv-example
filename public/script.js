@@ -1,7 +1,6 @@
 console.log('yo');
 
 var tbody = document.querySelector('tbody');
-var filterButton = document.querySelector('#filter-button');
 var productInput = document.querySelector('#product-input');
 var violationInput = document.querySelector('#violation-input');
 var firmInput = document.querySelector('#firm-input');
@@ -15,8 +14,9 @@ function putOnPage(list) {
   var str = '';
 
   for (var i = 0; i < list.length; i++) {
-    list[i].rowNum = i;
+    // list[i].rowNum = i;
     str += Mustache.render(template, list[i]);
+
   }
 
   tbody.innerHTML = str;
@@ -57,7 +57,6 @@ function filter() {
 
   for (var i = 0; i < allTheData.violations.length; i++) {
     var item = allTheData.violations[i];
-    //console.log(allTheData.violations[i]);
 
     if (productFilter !== '') {
       if (item.product.indexOf(productFilter) === -1) {
