@@ -1,14 +1,19 @@
-  var express = require('express');
+var express = require('express');
 var fs = require('fs');
 
 var app = express();
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 
-app.get('/api/data', function(req, res) {
+
+
+function getData(cb) {
+  console.log('#3 - inside getData');
 
   fs.readFile('violation-data.csv', 'utf-8', function(err, data) {
+    console.log('#4 - finished reading the file.');
 
     var output = [];
 
@@ -23,15 +28,53 @@ app.get('/api/data', function(req, res) {
       });
     }
 
+    console.log('#5 - Time to call teh callback, because I now have the data and have parsed it.');
+    cb(output);
+  });
+}
 
 
+
+
+app.get('/api/data', function(req, res) {
+
+  console.log('#1 - ajax call arrives');
+
+  var callback = function(arrayOfData) {
+    console.log('#6 - I am the callback! Time to send the data.');
     res.send({
-      violations: output
+      violations: arrayOfData
     });
+  };
+
+  console.log('#2 - time to get the data');
+  getData(callback);
+
+});
 
 
+
+
+
+
+app.get('/server-rendered', function(req, res) {
+
+  getData(function(output) {
+    res.render('pages/server-rendered', {
+      data: output
+    });
   });
 
+});
+
+
+
+
+
+
+
+app.get('/about', function(req, res) {
+  res.render('pages/about', { greeting: 'Hello, now go away.' });
 });
 
 

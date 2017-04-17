@@ -16,7 +16,6 @@ function putOnPage(list) {
   for (var i = 0; i < list.length; i++) {
     // list[i].rowNum = i;
     str += Mustache.render(template, list[i]);
-
   }
 
   tbody.innerHTML = str;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Server Rendered</h1>
+
+    <table>
+      <tbody>
+    <% for (var i = 0; i < data.length; i++) { %>
+
+      <tr>
+        <td><%= data[i].date %></td>
+        <td><%= data[i].product %></td>
+        <td><%= data[i].violation %></td>
+        <td><%= data[i].firm %></td>
+      </tr>
+
+    <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

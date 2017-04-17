@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tiy-dallas-march-2017-fee/cpsc-csv-example#readme",
   "dependencies": {
+    "ejs": "^2.5.6",
     "express": "^4.15.2"
   }
 }
